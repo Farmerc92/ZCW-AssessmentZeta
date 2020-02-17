@@ -37,6 +37,13 @@ public class ArrayUtils {
                 j++;
             }
         }
+        if (objectToRemove instanceof Integer){
+            Integer[] output = new Integer[j];
+            for (int k = 0; k < j; k++) {
+                output[k] = (Integer) buffer[k];
+            }
+            return output;
+        }
         Object[] output = new Object[j];
         for (int k = 0; k < j; k++) {
             output[k] = buffer[k];
@@ -89,7 +96,7 @@ public class ArrayUtils {
                     tempCount++;
                 }
             }
-            if (tempCount < minCount){
+            if (tempCount < minCount || i == 0){
                 minCount = tempCount;
                 leastCommon = tempObject;
             }
@@ -104,14 +111,26 @@ public class ArrayUtils {
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
     public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
-        Object[] merge = new Object[objectArray.length + objectArrayToAdd.length];
-        int k = 0;
-        for (int i = 0; i < objectArray.length; i++) {
-            merge[k++] = objectArray[i];
+        if (objectArray[1] instanceof Integer){
+            Integer[] merge = new Integer[objectArray.length + objectArrayToAdd.length];
+            int position = 0;
+            for(Object obj : objectArray){
+                merge[position++] = (Integer) obj;
+            }
+            for(Object obj : objectArrayToAdd){
+                merge[position++] = (Integer) obj;
+            }
+            return merge;
         }
-        for (int j = 0; j < objectArrayToAdd.length; j++) {
-            merge[k++] = objectArray[j];
+        Object[] merge = new Object[objectArray.length + objectArrayToAdd.length];
+        int position = 0;
+        for(Object obj : objectArray){
+            merge[position++] = obj;
+        }
+        for(Object obj : objectArrayToAdd){
+            merge[position++] = obj;
         }
         return merge;
     }
+
 }

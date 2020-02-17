@@ -14,8 +14,11 @@ public class PetOwner {
      */
     public PetOwner(String name, Pet... pets) {
         this.name = name;
-        for (Pet pet : pets) {
-            this.pets.add(pet);
+        if (pets != null){
+            for (Pet petElement : pets) {
+                this.pets.add(petElement);
+                petElement.setOwner(this);
+            }
         }
     }
 
@@ -101,6 +104,11 @@ public class PetOwner {
      * @return array representation of animals owned by this PetOwner
      */
     public Pet[] getPets() {
+        if (pets.size() == 0){
+            Pet[] noPets = new Pet[1];
+            noPets[0] = null;
+            return noPets;
+        }
         Pet[] output = new Pet[pets.size()];
         for (int i = 0; i < output.length; i++) {
             output[i] = pets.get(i);

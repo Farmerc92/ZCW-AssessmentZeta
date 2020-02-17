@@ -27,10 +27,10 @@ public class BasicStringUtilsTest {
         String expected = "xof nworb kciuq eht";
 
         // When
-        //String actual = BasicStringUtils.reverse(input);
+        String actual = BasicStringUtils.reverse(input);
 
         // Then
-        //Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual);
     }
 
 

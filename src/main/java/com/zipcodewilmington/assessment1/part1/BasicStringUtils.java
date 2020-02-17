@@ -9,16 +9,20 @@ public class BasicStringUtils {
      * @return string with identical content, and the first character capitalized
      */
     public static String camelCase(String str) {
-        return null;
+        String str1 = str.substring(0,1).toUpperCase();
+        String str2 = str1 + str.substring(1,str.length());
+        return str2;
     }
 
     /**
      * @param str string input from client
      * @return string with identical contents, in the reverse order
      */
-    public static String reverse(String str) {
-        return null;
-    }
+//    public static String reverse(String str) {
+//        StringBuilder str1 = new StringBuilder(str);
+//        str1.reverse();
+//        return str1.toString();
+//    }
 
     /**
      * @param str string input from client

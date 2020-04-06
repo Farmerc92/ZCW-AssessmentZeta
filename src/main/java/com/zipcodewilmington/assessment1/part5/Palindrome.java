@@ -7,7 +7,7 @@ public class Palindrome {
     public Integer countPalindromes(String input){
         int length = input.length();
         int count = 0;
-        String palindrome = "";
+        String palindrome;
         char[] charArray = input.toCharArray();
         Character[] array = new Character[length];
         for (int c = 0; c < length; c++) {
